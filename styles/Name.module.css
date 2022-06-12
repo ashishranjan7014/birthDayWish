@@ -1,0 +1,335 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dark_mode {
+  color: white;
+}
+
+.light_mode {
+  color: black;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.imageWrapper {
+  animation: zoom-in-zoom-out 5s ease-out infinite;
+}
+
+.containerImg {
+  min-height: 100vh;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../public/confetti.png");
+}
+
+.animate {
+  animation: zoom 2s ease-in-out;
+  padding: 0px;
+  width: 100%;
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.canvas {
+  position: fixed;
+  z-index: 5;
+}
+
+.main {
+  padding: 1rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.dynamicWord {
+  text-align: center;
+  letter-spacing: 5px;
+  animation: zoom-in-zoom-out 1s ease infinite;
+  font-weight: 600;
+  /* text-transform: capitalize; */
+  animation: pulsate 1.5s infinite alternate;
+  border: 0.5rem solid #fff;
+  border-radius: 1rem;
+  padding: 0.4em;
+  box-shadow: 0 0 .2rem #fff,
+    0 0 .2rem #fff,
+    0 0 2rem #bc13fe,
+    0 0 0.8rem #bc13fe,
+    0 0 2.8rem #bc13fe,
+    inset 0 0 1.3rem #bc13fe;
+}
+.dynamicWord span {
+  font-family: 'Pacifico';
+}
+@keyframes pulsate {
+
+  100% {
+
+    text-shadow:
+      0 0 4px #fff,
+      0 0 11px #fff,
+      0 0 19px #fff,
+      0 0 40px #bc13fe,
+      0 0 80px #bc13fe,
+      0 0 90px #bc13fe,
+      0 0 100px #bc13fe,
+      0 0 150px #bc13fe;
+  }
+
+  0% {
+    text-shadow:
+      0 0 2px #fff,
+      0 0 4px #fff,
+      0 0 6px #fff,
+      0 0 10px #bc13fe,
+      0 0 45px #bc13fe,
+      0 0 55px #bc13fe,
+      0 0 70px #bc13fe,
+      0 0 80px #bc13fe;
+
+  }
+}
+
+.span {
+  color: var(--color);
+}
+
+.desc {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  animation: wavyText 1.5s ease-in-out 2s infinite;
+  animation-delay: calc(((1.5s / var(--wish-length)) * var(--i)) + 2s);
+}
+
+.desc .span {
+  text-decoration: underline;
+}
+
+.descImg {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.descImg .span {
+  text-decoration: underline;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin: 0;
+  line-height: 1.15;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 0.3em;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 3rem;
+  }
+}
+
+/* Added animation on the title */
+.title div {
+  flex-shrink: 0;
+  max-width: 100vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.title div span {
+  display: inline-block;
+  white-space: pre;
+  animation: wavyText 1.5s ease-in-out 2s infinite;
+  animation-delay: calc(((1.5s / var(--wish-length)) * var(--i)) + 2s);
+}
+
+.title {
+  font-size: 2.5rem;
+  margin: 0;
+  line-height: 1.15;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 0.3em;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 3rem;
+  }
+
+  .titleImg {
+    font-size: 3rem;
+  }
+}
+
+.titleImg {
+  font-size: 2.5rem;
+  margin: 0;
+  line-height: 1.15;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 0.3em;
+}
+
+/* Added animation on the title */
+.titleImg div {
+  flex-shrink: 0;
+  max-width: 100vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.titleImg div span {
+  display: inline-block;
+  white-space: pre;
+}
+
+@keyframes wavyText {
+  0% {
+    transform: translateY(0px);
+  }
+
+  20% {
+    transform: translateY(-20px);
+  }
+
+  40%,
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+
+  50% {
+    transform: scale(1.2, 1.2);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+/* ---------------------------- */
+
+.buttonContainer {
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 1em;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+  cursor: pointer;
+}
+
+.label {
+  width: 50px;
+  height: 26px;
+  background-color: #111;
+  display: flex;
+  border-radius: 50px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  position: relative;
+  transform: scale(1.5);
+  cursor: pointer;
+}
+
+.ball {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+/*  target the elemenent after the label*/
+.checkbox:checked+.label .ball {
+  transform: translateX(24px);
+}
+
+.fa_moon {
+  color: pink;
+}
+
+.fa_sun {
+  color: yellow;
+}
+.Main_Wapper {
+  display: flex;
+  justify-items: space-evenly;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.Wapper_Left {
+  display: inline-flex;
+  width: 30%;
+  height: 100%;
+  position: relative;
+  z-index: 4;
+}
+.Wapper_Right {
+  width: 70%;
+  position: relative;
+  /* z-index: 4; */
+  height: 100%;
+}
+#bgi img {
+  width: 100% !important;
+}
+.checkboxWrapper {
+  position: relative;
+  z-index: 9;
+}
