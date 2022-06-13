@@ -6,13 +6,19 @@ import ConfettiGenerator from "confetti-js";
 import messages from "../utils/birthdayWishes.js";
 import useTheme from "../hooks/useTheme";
 import Theme from "../components/Theme/Theme";
+import CakeImg from "../components/CakeImg/CakeImg";
 import ImageFader from "../components/ImageFader/ImageFader";
+import MobileView from "../components/MobileView/MobileView";
 
 const Wish = ({ }) => {
   const router = useRouter();
   const { name } = router.query; // gets both name & color id in form of array [name,colorId]
   const color = name ? name[1] : 4; //extracting colorId from name
   const [isDarkMode, setIsDarkMode] = useState(true);
+  const [wishMsg, setWishMsg] = useState("");
+  const [isMobile, setIsMobile] = useState(true);
+
+
 
 
   const audioRef = useRef();
@@ -27,14 +33,28 @@ const Wish = ({ }) => {
       target: "canvas",
       start_from_edge: true,
       rotate: true,
-      clock: 250,
-      size: 4,
-      max: 80
+      clock: isMobile?20: 250,
+      size: isMobile?4:4,
+      max: isMobile?40:80
     };
     confetti = new ConfettiGenerator(confettiSettings);
     confetti.render();
+    if(audioRef && audioRef.current){
+      audioRef.current.play();
+      audioRef.current.playbackRate = 1.2;
+    }
+    
     return () => confetti.clear();
   }, [color]);
+
+  useEffect(() => {
+    if (messages) {
+      setWishMsg(messages[randomNumber(0, messages.length)].value)
+      setInterval(() => {
+        setWishMsg(messages[randomNumber(0, messages.length)].value);
+      }, 10000);
+    }
+  }, [messages]);
 
   // function for randomly picking the message from messages array
   const randomNumber = (min, max) => {
@@ -65,14 +85,14 @@ const Wish = ({ }) => {
     }
 
     return (
-      <h1 className={styles.title} style={{ "--wish-length": wish.length }}>
+      <h3 className={styles.title} style={{ "--wish-length": wish.length }}>
         <div>{base_letters.map((letter) => letter)}</div>
         <div className={styles.dynamicWord}>{name_letters.map((letter) => letter)}</div>
-      </h1>
+      </h3>
     );
   };
 
-  return (
+  return (!isMobile ?
     <div className={`${isDarkMode ? styles.dark_mode : styles.light_mode} ${styles.container}`}>
       <Head>
         <title>Happy Birthday {name && name[0]}</title>
@@ -107,32 +127,25 @@ const Wish = ({ }) => {
                 <div className={styles.main}>
                   {title(name && name[0] && name[0])}
                   <p className={styles.desc}>
-                    {messages[randomNumber(0, messages.length)].value}
+                    {wishMsg}
                   </p>
                 </div>
-                <div className={styles.imageWrapper}>
-                  <img src="media/cake.gif" />
-                  <img src="media/cake.gif" />
-                  <img src="media/cake.gif" />
-                </div>
-              </div>
-              <div>
+                <CakeImg />
               </div>
             </div>
           </div>
         </div>
-
-        <div className={styles.contentWrapper}>
-          <div id="image-container"></div>
-        </div>
       </main>
       <audio ref={audioRef} id="player" autoPlay loop >
-        <source src="media/happy-birthday-to-you.mp3" />
-        <source src="media/happy-birthday-to-you-electronic.mp3" />
-        <source src="media/happy-birthday-to-you-upbeat.mp3" />
-        <source src="media/happy-birthday-to-you-baby.mp3" />
+        <source src="media/Happy-Birthday.mp3" />
       </audio>
     </div>
+    :
+    <MobileView
+      name={name && name[0]}
+      title={title(name && name[0] && name[0])}
+      wishMsg={wishMsg}
+    />
   );
 };
 

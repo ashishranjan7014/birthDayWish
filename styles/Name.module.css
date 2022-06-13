@@ -24,6 +24,8 @@
 
 .imageWrapper {
   animation: zoom-in-zoom-out 5s ease-out infinite;
+  position: absolute;
+  bottom: 0;
 }
 
 .containerImg {
@@ -332,4 +334,5 @@
 .checkboxWrapper {
   position: relative;
   z-index: 9;
+  margin-top: 70px;
 }

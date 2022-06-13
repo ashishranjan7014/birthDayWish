@@ -54,8 +54,8 @@
 }
 
 .themeWrapper {
-  padding-bottom: 2rem;
-  margin-bottom: 1rem;
+  padding-top: 2rem;
+  /* margin-bottom: 1rem; */
   display: flex;
   justify-content: center;
   position: relative;
@@ -76,4 +76,9 @@
 
 .button {
   margin-right: 8px;
+}
+
+
+.radioBtn{
+  /* border-radius: 0%; */
 }

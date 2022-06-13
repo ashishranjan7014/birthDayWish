@@ -8,13 +8,6 @@ const Theme = () => {
 
     return (
         <Fragment>
-            <div className={homeStyles.main}>
-                <h1 className={homeStyles.title}>
-                    Choose a <span className={homeStyles.span}>Theme</span>
-                </h1>
-            </div>
-            {/* Theme Color  */}
-
             <div className={homeStyles.themeWrapper}>
                 <form
                     className={homeStyles.theme}
