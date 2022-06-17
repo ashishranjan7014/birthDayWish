@@ -336,3 +336,9 @@
   z-index: 9;
   margin-top: 70px;
 }
+
+.player{
+  z-index: 20;
+  background-color: transparent;
+  opacity: 0.5;
+}

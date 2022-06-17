@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
 
-.dark_mode{
+.dark_mode {
   background-color: #111;
   color: white;
 }
+
 .container {
   display: flex;
   flex-direction: column;
@@ -22,6 +23,7 @@
   /* animation: zoom-in-zoom-out 5s ease-out infinite; */
   position: absolute;
   bottom: 0;
+  width: 100%;
 }
 
 .containerImg {
@@ -53,7 +55,7 @@
 
 .canvas {
   position: fixed;
-  z-index: 5;
+  /* z-index: 5; */
 }
 
 .main {
@@ -83,9 +85,11 @@
     0 0 2.8rem #bc13fe,
     inset 0 0 1.3rem #bc13fe;
 }
+
 .dynamicWord span {
   font-family: 'Pacifico';
 }
+
 @keyframes pulsate {
 
   100% {
@@ -125,6 +129,7 @@
   font-size: 15px;
   animation: wavyText 1.5s ease-in-out 2s infinite;
   animation-delay: calc(((1.5s / var(--wish-length)) * var(--i)) + 2s);
+  margin: 2%;
 }
 
 .desc .span {
@@ -286,38 +291,51 @@
   display: flex;
   justify-items: space-evenly;
   width: 100%;
-  /* height: 100vh; */
   overflow: hidden;
 }
+
 .Wapper_Left {
   display: inline-flex;
   width: 100%;
   height: 300px;
   position: relative;
-  z-index: 4;
-  /* top: 40px; */
 }
+
 .Wapper_Right {
   width: 70%;
   position: relative;
-  /* z-index: 4; */
   height: 100%;
 }
+
 #bgi img {
   width: 100% !important;
   height: 50px;
 }
-.leftCake{
+
+.leftCake {
   display: inline-block;
+  width: 32%;
 }
-.rightCake{
-  margin-left: 16px;
+
+.rightCake {
   display: inline-block;
+  width: 32%;
 
 }
-.rightCake img{
-  margin-left: 122px;
+
+.rightCake img {
+  margin-left: 14%;
 }
-.leftCake img{
-  margin-left: 16px;
+
+.leftCake img {
+  margin-left: 15%;
+}
+
+.audio {
+  display: inline-block;
+  width: 32%;
+}
+
+.audio audio{
+  width: 100%;
 }
