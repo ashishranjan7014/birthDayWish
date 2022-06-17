@@ -131,6 +131,10 @@ const Wish = ({ }) => {
               <ImageFader />
               <Theme />
               <div className={styles.wrapper}>
+                
+              <audio id="player" className={styles.player} ref={audioRef} autoPlay loop controls>
+                  <source src="media/Happy-Birthday.mp3" />
+                </audio>
                 <div className={styles.checkboxWrapper}>
                   <input type="checkbox" className={styles.checkbox} checked={isDarkMode} id="checkbox" onChange={() => { setIsDarkMode(!isDarkMode) }} />
                   <label htmlFor="checkbox" className={styles.label} style={{ backgroundColor: !isDarkMode ? "black" : "white" }}>
@@ -151,9 +155,7 @@ const Wish = ({ }) => {
           </div>
         </div>
       </main>
-      <audio id="player" className={styles.player} ref={audioRef} autoPlay loop >
-        <source src="media/Happy-Birthday.mp3" />
-      </audio>
+
     </div>
     :
     <MobileView

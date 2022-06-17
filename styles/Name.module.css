@@ -334,12 +334,16 @@
 .checkboxWrapper {
   position: relative;
   z-index: 9;
-  margin-top: 70px;
+  margin-top: 40px;
 }
 
 .player{
   z-index: 20;
-  background-color: transparent;
-  opacity: 0.5;
+  position: relative;
+  top: 25px;
 }
 
+.player audio{
+  border-radius: 0% !important;
+
+}
