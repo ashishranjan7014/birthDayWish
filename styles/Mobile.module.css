@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
 
+
 .dark_mode {
   background-color: #111;
   color: white;
@@ -118,7 +119,6 @@
 
   }
 }
-
 .span {
   color: var(--color);
 }
@@ -338,4 +338,36 @@
 
 .audio audio{
   width: 100%;
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width: 370px) {
+  .Wapper_Left{
+    height: 350px;
+  }
+}
+
+
+@media only screen and (min-device-width:396px) and (max-device-width: 539px) {
+  .Wapper_Left{
+    height: 500px;
+  }
+  .main{
+    padding: 1.5rem 0;
+  }
+}
+
+@media only screen and (min-device-width:540px) and (max-device-width: 620px) {
+  .Wapper_Left{
+    height: 370px;
+  }
+  .main{
+    padding: 0.5rem 0;
+  }
+}
+
+
+@media only screen and (min-device-width:390px) and (max-device-width: 395px) {
+  .Wapper_Left{
+    height: 450px;
+  }
 }
