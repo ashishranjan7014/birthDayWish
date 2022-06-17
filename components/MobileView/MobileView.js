@@ -7,7 +7,8 @@ import ImageFader from "../ImageFader/ImageFader";
 const MobileView = ({
     title,
     wishMsg,
-    name
+    name,
+    audioRef
 }) => {
     return (
         <div className={`${styles.dark_mode} ${styles.container}`}>
@@ -36,11 +37,11 @@ const MobileView = ({
                     {wishMsg}
                 </p>
                 <div className={styles.imageWrapper}>
-                    <div className={styles.leftCake}><img width={"103px"} src="media/cake.gif" /></div>
-                    <div className={styles.rightCake}><img width={"103px"} src="media/cake.gif" /></div>
+                    <div className={styles.leftCake}><img width={"90px"} src="media/cake.gif" /></div>
+                    <div className={styles.rightCake}><img width={"90px"} src="media/cake.gif" /></div>
                 </div>
             </main>
-            <audio id="player" autoPlay loop >
+            <audio id="player" ref={audioRef} autoPlay loop >
                 <source src="media/Happy-Birthday.mp3" />
             </audio>
         </div>
