@@ -4,7 +4,6 @@ import styles from "../styles/Name.module.css";
 import { useRouter } from "next/router";
 import ConfettiGenerator from "confetti-js";
 import messages from "../utils/birthdayWishes.js";
-import useTheme from "../hooks/useTheme";
 import Theme from "../components/Theme/Theme";
 import CakeImg from "../components/CakeImg/CakeImg";
 import ImageFader from "../components/ImageFader/ImageFader";
@@ -17,14 +16,8 @@ const Wish = ({ }) => {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [wishMsg, setWishMsg] = useState("");
   const [isMobile, setIsMobile] = useState(false);
-
-
-
-
+  const [currentTheme, setCurrentTheme] = useState({});
   const audioRef = useRef();
-  const { themes, setTheme, currentTheme } = useTheme();
-
-
 
   const isMobileDevice = () => {
     if (typeof window != "undefined") {
@@ -39,8 +32,6 @@ const Wish = ({ }) => {
   }
 
   useEffect(() => {
-    // Theme Change
-    setTheme(color);
     let confetti;
     // Confetti
     const confettiSettings = {
@@ -60,7 +51,7 @@ const Wish = ({ }) => {
     }
     isMobileDevice();
     return () => confetti.clear();
-  }, [color, audioRef]);
+  }, [audioRef]);
 
   useEffect(() => {
     if (messages) {
@@ -129,10 +120,12 @@ const Wish = ({ }) => {
           <div className={styles.Wapper_Right} style={{ backgroundColor: isDarkMode ? "black" : "white" }}>
             <div className={styles.contentWrapper}>
               <ImageFader />
-              <Theme />
+              <Theme
+                colorHandler={setCurrentTheme}
+              />
               <div className={styles.wrapper}>
-                
-              <audio id="player" className={styles.player} ref={audioRef} autoPlay loop controls>
+
+                <audio id="player" className={styles.player} ref={audioRef} autoPlay loop controls>
                   <source src="media/Happy-Birthday.mp3" />
                 </audio>
                 <div className={styles.checkboxWrapper}>
@@ -145,7 +138,7 @@ const Wish = ({ }) => {
                 </div>
                 <div className={styles.main}>
                   {title(name && name[0] && name[0])}
-                  <p className={styles.desc}>
+                  <p className={styles.desc} style={{ color: currentTheme.color }}>
                     {wishMsg}
                   </p>
                 </div>

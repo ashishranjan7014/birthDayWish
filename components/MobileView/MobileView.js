@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React from "react";
+import React, { useState } from "react";
 import styles from "../../styles/Mobile.module.css";
 import Theme from "../Theme/Theme";
 import ImageFader from "../ImageFader/ImageFader";
@@ -9,6 +9,9 @@ const MobileView = ({
     wishMsg,
     name
 }) => {
+    const [currentTheme, setCurrentTheme] = useState({});
+
+
     return (
         <div className={`${styles.dark_mode} ${styles.container}`}>
             <Head>
@@ -20,7 +23,9 @@ const MobileView = ({
                 style={{ backgroundColor: "transparent", left: 0, top: 0 }}
                 id="canvas"></canvas>
             <main className={styles.animate}>
-                <Theme />
+                <Theme
+                    colorHandler={setCurrentTheme}
+                />
                 <div className={styles.main}>
                     {title}
                 </div>
@@ -32,7 +37,7 @@ const MobileView = ({
                         </div>
                     </div>
                 </div>
-                <p className={styles.desc}>
+                <p className={styles.desc} style={{ color: currentTheme.color }}>
                     {wishMsg}
                 </p>
                 <div className={styles.imageWrapper}>

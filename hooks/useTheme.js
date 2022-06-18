@@ -14,6 +14,10 @@ const useTheme = () => {
 
   const [currentTheme, setCurrentTheme] = useState(themes[4]);
 
+  const randomIntFromInterval = (min, max) => { // min and max included 
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  };
+
   const setTheme = (id) => {
     const requiredTheme = themes.find((item) => id == item.id);
     // If the theme with the given id exists then change theme .
@@ -25,6 +29,15 @@ const useTheme = () => {
     let root = document.documentElement;
     root.style.setProperty("--color", currentTheme.color);
   }, [currentTheme]);
+
+
+  useEffect(() => {
+    let interval = setInterval(() => {
+      setTheme(randomIntFromInterval(0, 4));
+    }, 5000);
+
+    return (() => clearInterval(interval))
+  }, []);
 
   return { themes, setTheme, currentTheme };
 };

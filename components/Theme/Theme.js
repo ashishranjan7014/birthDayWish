@@ -1,10 +1,16 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import useTheme from "../../hooks/useTheme";
 import homeStyles from "../../styles/Home.module.css";
 
-const Theme = () => {
+const Theme = ({
+    colorHandler
+}) => {
 
     const { themes, setTheme, currentTheme } = useTheme();
+    
+    useEffect(()=>{
+        colorHandler(currentTheme)
+    },[currentTheme]);
 
     return (
         <Fragment>
@@ -12,7 +18,6 @@ const Theme = () => {
                 <form
                     className={homeStyles.theme}
                     id="theme-input"
-                    onChange={(e) => setTheme(e.target.id)}
                 >
                     {themes.map((item) => (
                         <input
@@ -22,7 +27,8 @@ const Theme = () => {
                             id={item.id}
                             name="theme"
                             value={item.color}
-                            defaultChecked={currentTheme.id === item.id}
+                            checked={currentTheme.id === item.id}
+                            onChange={(e) => setTheme(e.target.id)}
                         />
                     ))}
                 </form>
