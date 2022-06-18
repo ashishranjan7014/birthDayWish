@@ -47,7 +47,7 @@ const Wish = ({ }) => {
       target: "canvas",
       start_from_edge: true,
       rotate: true,
-      clock: isMobile ? 20 : 250,
+      clock: isMobile ? 100 : 250,
       size: isMobile ? 4 : 4,
       max: isMobile ? 40 : 80
     };
