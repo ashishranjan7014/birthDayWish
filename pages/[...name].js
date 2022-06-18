@@ -51,7 +51,7 @@ const Wish = ({ }) => {
     }
     isMobileDevice();
     return () => confetti.clear();
-  }, [audioRef]);
+  }, [color,audioRef]);
 
   useEffect(() => {
     if (messages) {
