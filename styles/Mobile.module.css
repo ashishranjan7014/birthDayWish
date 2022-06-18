@@ -25,6 +25,7 @@
   position: absolute;
   bottom: 0;
   width: 100%;
+  z-index: 10;
 }
 
 .containerImg {
@@ -334,12 +335,10 @@
 .audio {
   display: inline-block;
   width: 32%;
-  z-index: 20;
 }
 
 .audio audio{
   width: 100%;
-  z-index: 20;
 
 }
 
