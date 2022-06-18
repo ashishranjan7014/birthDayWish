@@ -11,7 +11,6 @@ const MobileView = ({
 }) => {
     const [currentTheme, setCurrentTheme] = useState({});
 
-
     return (
         <div className={`${styles.dark_mode} ${styles.container}`}>
             <Head>
@@ -37,7 +36,7 @@ const MobileView = ({
                         </div>
                     </div>
                 </div>
-                <p className={styles.desc} style={{ color: currentTheme.color }}>
+                <p className={styles.desc} style={{color:currentTheme.color}}>
                     {wishMsg}
                 </p>
                 <div className={styles.imageWrapper}>
