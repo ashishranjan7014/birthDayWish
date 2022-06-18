@@ -334,11 +334,13 @@
 .audio {
   display: inline-block;
   width: 32%;
-  z-index: 10;
+  z-index: 20;
 }
 
 .audio audio{
   width: 100%;
+  z-index: 20;
+
 }
 
 @media only screen and (min-device-width:320px) and (max-device-width: 370px) {
